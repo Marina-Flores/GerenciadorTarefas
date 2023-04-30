@@ -22,4 +22,8 @@ data class task(
 
     @ColumnInfo(name = "user_uid")
     val userUid : Int
-)
+) {
+    override fun toString(): String {
+        return "$title - $description"
+    }
+}

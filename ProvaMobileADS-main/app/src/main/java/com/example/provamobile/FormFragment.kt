@@ -67,11 +67,14 @@ class FormFragment : Fragment() {
 
             var task = task(null, titulo, descricao, userId!!)
 
-            id ?: taskDao.insert(task)
-            id?.let {
+            if(id == -1){
+                taskDao.insert(task)
+            }
+            else{
                 task.uid = id
                 taskDao.update(task)
             }
+
             navigation.navigateUp()
         }
         else{

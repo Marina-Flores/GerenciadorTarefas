@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.provamobile.data.AppDataBase
 import com.example.provamobile.data.SingletonDatabase
 import com.example.provamobile.data.dao.taskDAO
+import com.example.provamobile.data.models.task
 import com.example.provamobile.databinding.FragmentListBinding
 
 
@@ -59,24 +60,25 @@ class ListFragment : Fragment() {
 
     private fun listarTarefas(){
         var list = taskDao.getByUser(userId!!)
-        var taskList = mutableListOf<String>()
+        var taskList = mutableListOf<task>()
         var taskIdList = mutableListOf<Int>()
 
-        list.forEach{ (user, tasks) ->
-            println(user)
-
-            tasks.forEach{ task ->
-                var taskString = "${task.title} - ${task.description}"
-
-                task.uid?.let { taskList.add(taskString) }
-                task.uid?.let { taskIdList.add(it) }
+        list.forEach { (_, tasks) ->
+            tasks.forEach { task ->
+                if (task.uid != null) {
+                    taskList.add(task)
+                    taskIdList.add(task.uid!!)
+                }
             }
         }
+
+        taskList = taskList.distinct().toMutableList()
+        taskIdList = taskIdList.distinct().toMutableList()
 
         var context = activity?.baseContext as Context
         var resource = android.R.layout.simple_list_item_1
 
-        var adapter : ArrayAdapter<String> = ArrayAdapter(context, resource, taskList)
+        var adapter : ArrayAdapter<task> = ArrayAdapter(context, resource, taskList)
 
         listView.adapter = adapter
 
