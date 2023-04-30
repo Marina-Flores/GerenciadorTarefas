@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Gerenciador de Tarefas</string>
+    <string name="confirmar_exclusao">Confirmação de exclusão</string>
+    <string name="mensagem_exclusao">Ao prosseguir, todas as tarefas serão excluídas. Tem certeza que deseja continuar?</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="exluir_item">Ao prosseguir, essa tarefa será excluída. Tem certeza que deseja continuar?</string>
+    <string name="nova_tarefa">Nova tarefa</string>
+    <string name="exluir_tarefa">Excluir tudo</string>
+    <string name="mensagem_tarefa_nao_existe">Essa tarefa não pode ser excluída porque ela não existe!</string>
+    <string name="descricao">Descrição</string>
+    <string name="titulo">Título</string>
+    <string name="salvar">Salvar</string>
+    <string name="excluir">Excluir</string>
+    <string name="dados_invalidos">Erro ao cadastrar usuário. Verifique se todos os campos estão preenchidos corretamente e tente novamente!</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="logar">Entrar</string>
+    <string name="cadastrar">Cadastrar</string>
+
+    <string name="nome">Nome</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
